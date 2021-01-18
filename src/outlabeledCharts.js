@@ -1,5 +1,6 @@
 'use strict';
 
+import Chart from 'chart.js';
 import helpers from './helpers';
 import defaults from './defaults';
 
