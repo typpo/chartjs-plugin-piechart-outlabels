@@ -30,5 +30,8 @@
   },
   "peerDependencies": {
     "chart.js": ">= 2.7.0 < 3"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }
