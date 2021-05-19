@@ -687,6 +687,9 @@ Chart.plugins.register({
 	},
 
 	afterDatasetUpdate: function(chart, args, options) {
+    if (chart.config.type !== 'outlabeledDoughnut' && chart.config.type !== 'outlabeledPie') {
+      return;
+    }
 		var labels = chart.config.data.labels;
 		var dataset = chart.data.datasets[args.index];
 		var config = configure(dataset, options);
@@ -720,10 +723,10 @@ Chart.plugins.register({
 			}
 
 			if (
-				label && 
-				newLabel && 
+				label &&
+				newLabel &&
 				!chart.sizeChanged &&
-				(label.label === newLabel.label) && 
+				(label.label === newLabel.label) &&
 				(label.encodedText === newLabel.encodedText)
 			) {
 				newLabel.offset = label.offset;
@@ -736,6 +739,9 @@ Chart.plugins.register({
 		chart.sizeChanged = false;
 	},
 	afterDatasetDraw: function(chart, args) {
+    if (chart.config.type !== 'outlabeledDoughnut' && chart.config.type !== 'outlabeledPie') {
+      return;
+    }
 		var elements = args.meta.data || [];
 		var ctx = chart.ctx;
 		var el, label, index;
